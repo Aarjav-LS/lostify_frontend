@@ -5,12 +5,13 @@
   <title>Lostify</title>
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="api-base" content="https://lostify-2.onrender.com">
+  <meta name="api-base" content="">
 </head>
 <body>
   <div id="app"></div>
   <script>
-    window.API_BASE = document.querySelector('meta[name="api-base"]')?.content || '';
+    const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+    window.API_BASE = isLocal ? 'http://localhost:3000' : 'https://lostify-2.onrender.com';
   </script>
   <script src="app.js"></script>
 </body>

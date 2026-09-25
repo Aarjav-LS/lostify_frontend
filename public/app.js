@@ -174,6 +174,9 @@ app.addEventListener("click", async event => {
   }
   const form = event.target.closest("[data-form]");
   if (form) {
+    const tag = event.target.tagName;
+    if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT")
+      return;
     event.preventDefault();
     if (form.dataset.form === "auth") return login(form);
     if (form.dataset.form === "report") return submitReport(form);
